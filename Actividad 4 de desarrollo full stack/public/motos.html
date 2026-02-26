@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MotoRanger</title>
+    <style>
+        body{margin:0;font-family:Arial, sans-serif;background:0#0f1115;color:#fff}
+        header{padding:22px 18px;display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:auto} 
+        .logo{font-weight:700;letter-spacing:.5px}
+        nav a{color:#cfd3dc;text-decoration:none;margin-left:14px} 
+        nav a:hover{color:#fff} 
+
+        .section{padding:70px 18px}
+        .wrap{max-width:1000px;margin:auto}
+
+        .hero{max-width:1000px;margin:10px auto 0;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;padding:18px} 
+        .card{background:#171a21;border:1px solid #262b36;border-radius:12px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.25)} 
+        h1{margin: 0 0 10px;font-size:34px} 
+        p{margin:0 0 12px;color:#cfd3dc;line-height:1.5} 
+        .btn{display:inline-block;background:#2d7dff;color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}  
+        .btn:hover{filter:brightness(1.1)}
+        .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+        .pill{background:#11131a;border:1px solid #262b36;border-radius:999px;padding:8px 10px;color:#cfd3dc;font-size:13px}
+
+        .tipos-box{
+            background:#11131a;
+            border-top:1px solid #262b36;
+            border-bottom:1px solid #262b36;
+        }
+        .tipos-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-top:14px;
+        }
+        .tipo{
+            background:#171a21;
+            border:1px solid #262b36;
+            border-radius:12px;
+            padding:14px;
+        }
+        .tipo h3{margin:0 0 6px}
+        .tipo p{margin:0;color:#cfd3dc}
+
+        .grid{max-width:1000px;margin:0 auto 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 18px} 
+        .moto{border-radius:12px;padding:16px;background:#171a21;border:1px solid #262b36} 
+        .tag{display:inline-block;font-size:12px;color:#9fb7ff;background:#11131a;border:1px solid #262b36;border-radius:999px;padding:5px 8px;margin-bottom:10px} 
+        .price{font-weight:700;margin-top:10px} 
+        footer{max-width:1000px;margin:auto;padding:18px;color:#8f96a6;text-align:center;border-top:1px solid #262b36} 
+        .moto-img{
+            width:100%;
+            height:160px;
+            object-fit:cover;
+            border-radius:10px;
+            margin-bottom:10px;
+        }
+        @media(max-width:820px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+      </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="logo">MotoRanger</div>
+            <nav>
+                <a href="#tipos">Tipos</a>
+                <a href="#crud">CRUD</a>
+                <a href="#recomendadas">Recomendadas</a>
+                <a href="#tips">Tips</a>
+                <a href="#equipo">Equipo</a>
+            </nav>
+        </header>
+
+        <section class="section">
+          <div class="wrap hero">
+            <div class="card">
+                <h1>Vive la ruta. Siente la moto.</h1>
+                <p>Una pagina simple sobre motocicletas: estilos, recomendaciones y consejos basicos para elegir tu proxima motocycleta</p>
+                
+                  
+                
+              
+                <a class="btn" href="#equipo">Ver equipo basico</a>
+
+                <div class="stats">
+                    <div class="pill">Deportivas</div>
+                    <div class="pill">Adventure</div>
+                    <div class="pill">Cruiser</div>
+                    <div class="pill">Urbanas</div>
+                </div>
+            </div>
+            <div class="actions">
+            <div class="card">
+                <h2 style="margin:0 0 10px">¿Listo para rodar?</h2>
+                <p>Elige el tipo de moto segun tu ruta: ciudad, carretera o caminos mixtos.</p>
+                <a class="btn" href="#crud">Abrir CRUD</a>
+                <a class="btn" href="#recomendadas">Ver motos recomendadas</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section tipos-box" id="tipos">
+      <div class="wrap">
+        <h2 style="margin:0 0 8px">Tipos de motocicletas</h2>
+                    
+        <div class="tipos-grid">
+          <div class="tipo">
+            <h3>Urbana</h3>
+            </p> comoda para ciudad y consumo bajo</p>
+           </div>
+           <div class="tipo">
+             <h3>Adventure</h3> 
+             <p>rutas largas y caminos mixtos</p>
+           </div>
+           <div class="tipo">
+             <h3>Deportivo</h3> 
+             <p>velocidad y manejo agresivo</p>
+           </div>
+           <div class="tipo">
+             <h3>Cruiser</h3> 
+             <p>confort y estilo clasico</p>
+           </div>
+         </div>
+        </div>
+       </section>
+
+       <div class="line"></div>
+
+       <section class="section" id="crud">
+        <div class="top-actions">
+          <h2 style="margin:0">CRUD de Motos</h2>
+          <div class="count" id="countText">0 motos guardadas</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="row">
+            <div>
+              <label>Nombre</label>
+              <input id="name" placeholder="Ej. Trail 300" />
+
+              <label>Tipo</label>
+              <select id="type">
+                <option value="Urbana">Urbana</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Deportiva">Deportiva</option>
+                <option value="Cruiser">Cruiser</option>
+              </select>
+
+              <label>Precio</label>
+              <input id="price" placeholder="Ej. Desde $79,000 MXN" />
+            </div>
+
+            <div>
+              <label>Descripcion</label>
+              <textarea id="desc" placeholder="Ej. Ideal para carretera y escapadas mixtas"></textarea>
+
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn ok" id="saveBtn">Guardar</button>
+            <button class="btn btn2" id="clearBtn" type="button">Limpiar formulario</button>
+            <button class="btn danger" id="resetBtn" type="button">Borrar TODO</button>
+          </div>
+
+          <div class="hin" id="modeText">Modo: Agregar</div>
+        </div>
+
+        <div class="section">
+          <h2 style="margin:0 0 12px">Lista (editar / eliminar)</h2>
+          <div class="grid" id="list"></div>
+        </div>
+       </section>
+
+       <div class="line"></div>
+
+       <section class="section" id="recomendadas">
+         <div class="wrap">
+           <h2 style="margin:0 0 14px">Motos recomendadas</h2>
+
+            <div class="grid">
+              <div class="moto">
+                <img class="moto-img" src="img/descarga.jfif" alt="City 150">
+                <div class="tag">Urbana</div>
+                <h3 style="margin:0 0 6px">City 150</h3>
+                <p>Ligera facil de manejar y perfecta para moverte diario</p>
+                <div class="price">Desde $32,000 MXN</div>
+               </div>
+
+               <div class="moto">
+                 <img class="moto-img" src="img/moto1.jfif" alt="Trail 300">
+                 <div class="tag">Adventure</div>
+                 <h3 style="margin:0 0 6px">Trail 300</h3>
+                 <p>Ideal para carretera y escapadas con caminos mixtos</p>
+                 <div class="price">Desde $79,000 MXN</div>
+                </div>
+
+                <div class="moto">
+                  <img class="moto-img" src="img/moto2.jfif" alt="Sport 400">
+                  <div class="tag">Deportiva</div>
+                  <h3 style="margin:0 0 6px">Sport 400</h3>
+                  <p>Aceleracion rapida y gran estabilidad para rutas</p>
+                  <div class="price">Desde $98,000 MXN</div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="tips">
+            <div class="wrap hero">
+              <div class="card">
+                <h2 style="margin:0 0 10px">Tips rapidos antes de comprar</h2>
+                <p>Define uso principal: ciudad, carretera o mixto</p>
+                <p>Revisa altura del asiento: que apoyes bien los pies</p>
+                <p>Seguridad: casco, guantes y chaqueta</p>
+                <p>Mantenimiento: disponibilidad de refacciones y servicio</p>
+               </div>
+
+               <div class="card" id="equipo">
+                 <h2 style="margin:0 0 10px">Equipo basico recomendado</h2>
+                 <p>Casco</p>
+                 <p>Guantes con proteccion</p>
+                 <p>Chaqueta con protecciones</p>
+                 <p>Botas o calzado firme</p>
+                 <a class="btn" href="http://localhost:3000/login.html">Ir a Login</a>
+                 <a class="btn" href="#crud">Volver al CRUD</a>
+                </div>
+              </div>
+            </section>
+          
+          <script>
+            const KEY = "moto_crud_v1";
+
+            const $ = (id) => document.getElementById(id);
+            const listEl = $("list");
+            const countText = $("countText");
+            const modeText = $("modeText");
+
+            const form = {
+              name: $("name"),
+              type: $("type"),
+              price: $("price"),
+              desc: $("desc"),
+            };
+
+            let motos = load();
+            let editId = null;
+
+            function load() {
+              try {
+                const raw = localStorage.getItem(KEY);
+                if (!raw) return [
+                  {
+                    id: crypto.randomUUID(),
+                    name: "Urban 125",
+                    type: "Urbana",
+                    price: "Desde $29,000 MXN",
+                    desc: "Super rendidora para ciudad y facil de maniobrar",
+                    image: "img/descarga.jfif"
+                  }
+                ];
+                return JSON.parse(raw);
+              } catch {
+                return [];
+              }
+            }
+
+            function save() {
+              localStorage.setItem(KEY, JSON.stringify(motos));
+              render();
+            }
+
+            function clearForm() {
+              form.name.value = "";
+              form.type.value = "Urbana";
+              form.price.value = "";
+              form.desc.value = "";
+              editId = null;
+              modeText.textContent = "Modo: Agregar";
+              $("saveBtn").textContent = "Guardar";
+            }
+
+            function valdate(data) {
+              if (!data.name.trim()) return "Falta el nombre";
+              if (!data.price.trim()) return "Falta el precio";
+              if (!data.desc.trim()) return "Falta la descripcion";
+              return null;
+            }
+
+            
+            
+            function validate(data){
+              if (!data.name.trim()) return "Falta el nombre";
+              if (!data.price.trim()) return "Falta el precio";
+              if (!data.desc.trim()) return "Falta la descripcion";
+              return null;
+            }
+
+            function onSave() {
+              const data = {
+                name: form.name.value,
+                type: form.type.value,
+                price: form.price.value,
+                desc: form.desc.value,
+              };
+
+              const err = validate(data);
+              if (err) return alert(err);
+
+
+              if (editId) {
+                const idx = motos.findIndex(m => m.id === editId);
+                if (idx !== -1){
+                  motos[idx] = { ...motos[idx], ...data};
+                }
+              } else {
+                motos.unshift({ id: crypto.randomUUID(), ...data });
+              }
+
+              save();
+              clearForm();
+            }
+
+            function onEdit(id){
+              const m = motos.find(x => x.id === id);
+              if (!m) return;
+              form.name.value = m.name;
+              form.type.value = m.type;
+              form.price.value = m.price;
+              form.desc.value = m.desc;
+              modeText.textContent = "Modo: Editar";
+              $("saveBtn").textContent = "Actualizar";
+              window.location.hash = "#crud";
+            }
+
+            function onDelete(id) {
+              const m = motos.find(x => x.id === id);
+              if (!m) return;
+              const ok = confirm(`¿Eliminar "${m.name}"?`);
+              if (!ok) return;
+              motos = motos.filter(x => x.id !== id);
+              save();
+              if (editId === id) clearForm();
+            }
+
+            function onResetAll() {
+              const ok = confirm("¿Seguro que quieres borrar TODAS las motos guardadas");
+              if (!ok) return;
+              motos = [];
+              save();
+              clearForm();
+            }
+
+            function esc(s) {
+              return (s || "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+
+            }
+
+            function render() {
+              countText.textContent = motos.length + " moto(s) guardadas";
+
+              listEl.innerHTML = motos.map(m => `
+                <div class="moto">
+                  <div class="tag">${esc(m.type)}</div>
+                  <h3 style="margin:0 0 6px">${esc(m.name)}</h3>
+                  <p>${esc(m.desc)}</p>
+                  <div class="price">${esc(m.price)}</div>
+                  <div class="actions">
+                    <button class="btn btn2" type="button" onclick="window._editMoto('${m.id}')">Editar</button>
+                    <button class="btn danger" type="button" onclick="window._deleteMoto('${m.id}')">Eliminar</button>
+                  </div>
+                </div>
+              `).join("");
+            }
+
+            window._editMoto = onEdit;
+            window._deleteMoto = onDelete;
+
+            $("saveBtn").addEventListener("click", onSave);
+            $("clearBtn").addEventListener("click", clearForm);
+            $("resetBtn").addEventListener("click", onResetAll);
+
+            $("saveBtn").addEventListener("click", onSave);
+            render();
+          </script>
+</body>
+</html>
